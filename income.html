@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html ng-app="incomeApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JEonline | Console</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="plugins/select2/select2.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="dist/css/skins/skin-red.min.css">
+
+  </head>
+  <body class="hold-transition skin-red sidebar-mini">
+    <div class="wrapper">
+
+      <header class="main-header">
+        <!-- Logo -->
+        <a href="http://www.jessie-english.com" class="logo">
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class="logo-mini"><b>JE</b></span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg"><b>JE</b>online</span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- User Account: style can be found in dropdown.less -->
+              <li class="user user-menu">
+                <a href="#"><span class="hidden-xs"></span></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- Sidebar user panel -->
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="dist/img/avatar-3-160x160.jpg" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+              <p></p>
+              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+          </div>
+
+          <ul class="sidebar-menu">
+            <li class="header">MAIN NAVIGATION</li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-users"></i> <span>Teacher</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="record.html"><i class="fa fa-circle-thin"></i> Record</a></li>
+                <li><a href="faculty.html"><i class="fa fa-circle-thin"></i> Faculty</a></li>
+                <!--<li><a href="#"><i class="fa fa-circle-thin"></i> Schedule</a></li>-->
+                <li><a href="assignment.html"><i class="fa fa-circle-thin"></i> Assignment</a></li>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-graduation-cap"></i> <span>Students</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="register.html"><i class="fa fa-circle-thin"></i> Register</a></li>
+                <!--<li><a href="#"><i class="fa fa-circle-thin"></i> Recharge</a></li>-->
+                <!--<li><a href="#"><i class="fa fa-circle-thin"></i> Profiles</a></li>-->
+              </ul>
+            </li>
+            <li class="treeview active">
+              <a href="#">
+                <i class="fa fa-money"></i> <span>Finance</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li class="active"><a href="income.php"><i class="fa fa-circle-thin"></i> Income</a></li>
+                <li><a href="cost.html"><i class="fa fa-circle-thin"></i> Cost</a></li>
+                <!--<li><a href="#"><i class="fa fa-circle-thin"></i> Statics</a></li>-->
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-gears"></i> <span>Settings</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-circle-thin"></i> Skype IDs</a></li>
+                <li><a href="#"><i class="fa fa-circle-thin"></i> QQ IDs</a></li>
+                <li><a href="#"><i class="fa fa-circle-thin"></i> Wechat IDs</a></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>Payments</h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#">Finance</a></li>
+            <li class="active">Income</li>
+          </ol>
+        </section>
+        <!-- Main content -->
+        <section class="invoice" ng-controller="incomeController as incomeCtrl">
+          <!-- title row -->
+          <div class="row">
+            <div class="col-xs-12">
+              <h2 class="page-header">
+                <i class="fa fa-globe"></i> JEonline.
+                <small class="pull-right">Date: {{incomeCtrl.getDate() | date:'MM/dd/yyyy'}}</small>
+              </h2>
+            </div><!-- /.col -->
+          </div>
+
+          <div class="row">
+            <!-- accepted payments column -->
+            <div class="col-xs-12">
+              <p class="lead">Total Due {{incomeCtrl.getDate() | date:'MM/dd/yyyy'}}</p>
+              <div class="table-responsive">
+                <table class="table">
+                  <tr>
+                    <th style="width:50%">Total:</th>
+                    <td class="text-bold"> {{incomeCtrl.getTotalAmount() | currency}}</td>
+                  </tr>
+                  <tr>
+                    <th>Total Hours</th>
+                    <td>{{incomeCtrl.getTotalHours()}}</td>
+                  </tr>
+                  <!--<tr>-->
+                    <!--<th>Cost:</th>-->
+                    <!--<td>0</td>-->
+                  <!--</tr>-->
+                  <!--<tr>-->
+                    <!--<th>Profit:</th>-->
+                    <!--<td class="text-danger text-bold">1,300.00</td>-->
+                  <!--</tr>-->
+                </table>
+              </div>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+          <!-- Table row -->
+          <div class="row">
+            <div class="col-xs-12 table-responsive">
+              <div class="box">
+                <div class="box-header with-border">
+                  <div class="input-group input-group-sm">
+                    <input type="text" ng-model="searchText" class="form-control">
+                    <span class="input-group-btn">
+                      <button class="btn btn-warning btn-flat" ng-click="incomeCtrl.setPage(1)" type="button">Search</button>
+                    </span>
+                  </div><!-- /input-group -->
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <table class="table table-bordered">
+                    <tr>
+                      <th class="bg-green-gradient"><i class="fa fa-user"></i> name</th>
+                      <th class="bg-green-gradient"><i class="fa fa-weixin"></i> wechat</th>
+                      <th class="bg-green-gradient"><i class="fa fa-calendar"></i> date</th>
+                      <th class="bg-green-gradient"><i class="fa fa-calendar"></i> expired</th>
+                      <th class="bg-green-gradient"><i class="fa fa-clock-o"></i> Hrs</th>
+                      <th class="bg-green-gradient"><i class="fa fa-comment-o"></i> Description</th>
+                      <th class="bg-green-gradient"><i class="fa fa-credit-card"></i> Amount</th>
+                      <th class="bg-green-gradient"><i class="fa fa-male"></i> Agent</th>
+                    </tr>
+                    <tr ng-repeat="income in incomeCtrl.incomes | orderBy:'-income.pdate' | filter:searchText | limitTo:incomeCtrl.limit:incomeCtrl.begin">
+                      <td>{{income.name}}</td>
+                      <td>{{income.wechat}}</td>
+                      <td>{{income.pdate * 1000 | date:'MM/dd/yyyy'}}</td>
+                      <td>{{income.expired * 1000 | date:'MM/dd/yyyy'}}</td>
+                      <td>{{income.hours}}</td>
+                      <td>{{income.description | limitTo:50}}</td>
+                      <td>{{income.amount | currency}}</td>
+                      <td>{{income.agent}}</td>
+                    </tr>
+                  </table>
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix">
+                  <ul class="pagination pagination-sm no-margin pull-right">
+                    <li><a href="#" ng-click="incomeCtrl.prevPage()">&laquo;</a></li>
+                    <li ng-repeat="page in incomeCtrl.pages">
+                      <a href="#" ng-class="{ 'bg-aqua':incomeCtrl.currentPageNumber === page}" ng-click="incomeCtrl.setPage(page)">{{page}}</a>
+                    </li>
+                    <li><a href="#" ng-click="incomeCtrl.nextPage()">&raquo;</a></li>
+                  </ul>
+                </div>
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+          <div class="box box-danger">
+            <div class="box-header with-border">
+              <h3 class="box-title">New Income</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <!--<select ng-model="incomeCtrl.payer" ng-options="contact.name for contact in incomeCtrl.contacts"></select>-->
+                  <div class="form-group">
+                    <select class="form-control select2" ng-model="incomeCtrl.name" ng-options="student.name for student in incomeCtrl.students track by student.wechat" style="width: 100%;">
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <select ng-model="incomeCtrl.agent" class="form-control select2" style="width: 100%;">
+                      <option selected="selected" value="Jessie">Jessie</option>
+                      <option value="Dou">Dou Jianru</option>
+                    </select>
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
+                    <input type="text" ng-model="incomeCtrl.rate" ng-change="incomeCtrl.cal()" class="form-control" placeholder="Rate">
+                  </div>
+                  <br>
+                </div><!-- /.col -->
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <select ng-model="incomeCtrl.hours" ng-change="incomeCtrl.cal()" class="form-control select2" style="width: 100%;">
+                      <option selected="selected" value="10">10 hours</option>
+                      <option value="20">20 hours</option>
+                      <option value="30">30 hours</option>
+                      <option value="40">40 hours</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <select ng-model="incomeCtrl.expired" class="form-control select2" style="width: 100%;">
+                      <option selected="selected" value="31">1 Month</option>
+                      <option value="62">2 Months</option>
+                      <option value="93">3 Months</option>
+                      <option value="124">4 Months</option>
+                    </select>
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                    <input type="text" ng-model="incomeCtrl.total" class="form-control" placeholder="Total Amount">
+                  </div>
+                </div><!-- /.col -->
+              </div><!-- /.row -->
+              <br>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="input-group">
+                    <span class="input-group-addon">Description</span>
+                    <input type="text" ng-model="incomeCtrl.description" class="form-control" placeholder="Enter some description">
+                  </div>
+                </div>
+              </div>
+            </div><!-- /.box-body -->
+            <div class="box-footer">
+              <button class="btn btn-success" ng-click="incomeCtrl.pay()"> Save Payment</button>
+            </div>
+          </div><!-- /.box -->
+        </section><!-- /.content -->
+        <div class="clearfix"></div>
+      </div><!-- /.content-wrapper -->
+      <footer class="main-footer no-print">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> 2.3.0
+        </div>
+        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
+      </footer>
+
+    </div><!-- ./wrapper -->
+
+    <!-- jQuery 2.1.4 -->
+    <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="plugins/fastclick/fastclick.min.js"></script>
+    <!-- Select2 -->
+    <script src="plugins/select2/select2.full.min.js"></script>
+    <!-- DataTables -->
+    <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/app.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="dist/js/demo.js"></script>
+    <!-- layout JS -->
+    <script src="dist/js/income.js"></script>
+    <!-- Angular JS -->
+    <script src="angular/angular.min.js"></script>
+    <!-- datasource -->
+    <script src="angular/incomeds.js"></script>
+  </body>
+</html>

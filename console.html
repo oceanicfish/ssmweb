@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html ng-app="consoleApp">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>JEonline | Console</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.5 -->
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="dist/css/skins/skin-red.css">
+</head>
+<body class="hold-transition skin-red sidebar-mini">
+<div class="wrapper">
+
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="http://www.jessie-english.com" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>JE</b></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>JE</b>online</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top" role="navigation">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="user user-menu">
+            <a href="#"><span class="hidden-xs"></span></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="dist/img/avatar-3-160x160.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p></p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+
+      <ul class="sidebar-menu">
+        <li class="header">MAIN NAVIGATION</li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-users"></i> <span>Teacher</span>
+            <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="record.html"><i class="fa fa-circle-thin"></i> Record</a></li>
+            <li><a href="faculty.html"><i class="fa fa-circle-thin"></i> Faculty</a></li>
+            <!--<li><a href="#"><i class="fa fa-circle-thin"></i> Schedule</a></li>-->
+            <li><a href="assignment.html"><i class="fa fa-circle-thin"></i> Assignment</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-graduation-cap"></i> <span>Students</span>
+            <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="register.html"><i class="fa fa-circle-thin"></i> Register</a></li>
+            <!--<li><a href="#"><i class="fa fa-circle-thin"></i> Recharge</a></li>-->
+            <!--<li><a href="#"><i class="fa fa-circle-thin"></i> Profiles</a></li>-->
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-money"></i> <span>Finance</span>
+            <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="income.html"><i class="fa fa-circle-thin"></i> Income</a></li>
+            <li><a href="cost.html"><i class="fa fa-circle-thin"></i> Cost</a></li>
+            <!--<li><a href="#"><i class="fa fa-circle-thin"></i> Statics</a></li>-->
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-gears"></i> <span>Settings</span>
+            <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-thin"></i> Skype IDs</a></li>
+            <li><a href="#"><i class="fa fa-circle-thin"></i> QQ IDs</a></li>
+            <li><a href="#"><i class="fa fa-circle-thin"></i> Wechat IDs</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>Console</h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="invoice" ng-controller="contactController as contactCtrl">
+      <div class="row">
+        <div class="col-xs-12 table-responsive">
+            <div class="box">
+                <div class="box-header with-border">
+                    <div class="input-group input-group-sm">
+                        <input type="text" ng-model="searchText" class="form-control">
+                    <span class="input-group-btn">
+                      <button class="btn btn-warning btn-flat" ng-click="contactCtrl.setPage(1)" type="button">Search</button>
+                    </span>
+                    </div><!-- /input-group -->
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th class="bg-green-gradient"><i class="fa fa-user"></i> name</th>
+                            <th class="bg-green-gradient"><i class="fa fa-calendar"></i> date</th>
+                            <th class="bg-green-gradient"><i class="fa fa-weixin"></i> wechat</th>
+                            <th class="bg-green-gradient"><i class="fa fa-qq"></i> QQ</th>
+                            <th class="bg-green-gradient"><i class="fa fa-skype"></i> Skype</th>
+                            <th class="bg-green-gradient"><i class="fa fa-comment-o"></i> comment</th>
+                        </tr>
+                        <tr ng-repeat="contact in contactCtrl.contacts | filter:searchText | limitTo:contactCtrl.limit:contactCtrl.begin">
+                            <td>{{contact.name}}</td>
+                            <td>{{contact.ctime | date:'MM/dd/yyyy @ h:mma'}}</td>
+                            <td>{{contact.wechat}}</td>
+                            <td>{{contact.qq}}</td>
+                            <td>{{contact.skype}}</td>
+                            <td>{{contact.comment | limitTo:10}}</td>
+                        </tr>
+                    </table>
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix">
+                    <ul class="pagination pagination-sm no-margin pull-right">
+                        <li><a href="#" ng-click="contactCtrl.prevPage()">&laquo;</a></li>
+                        <li ng-repeat="page in contactCtrl.pages">
+                            <a href="#" ng-class="{ 'bg-aqua':contactCtrl.currentPageNumber === page}" ng-click="contactCtrl.setPage(page)">{{page}}</a>
+                        </li>
+                        <li><a href="#" ng-click="contactCtrl.nextPage()">&raquo;</a></li>
+                    </ul>
+                </div>
+            </div><!-- /.box -->
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </section><!-- /.content -->
+  </div><!-- /.content-wrapper -->
+
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 2.3.0
+    </div>
+    <strong>Designed By <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong>
+  </footer>
+</div><!-- ./wrapper -->
+
+<!-- jQuery 2.1.4 -->
+<script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<!-- Slimscroll -->
+<script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="plugins/fastclick/fastclick.min.js"></script>
+<!-- DataTables -->
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<!-- Angular JS -->
+<script src="angular/angular.min.js"></script>
+<!-- datasource -->
+<script src="angular/consoleds.js"></script>
+</body>
+</html>
